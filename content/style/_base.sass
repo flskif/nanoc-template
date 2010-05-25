@@ -1,1 +1,17 @@
-@import "blueprint/reset"
+@import "blueprint"
+@import "compass/reset"
+
+!blueprint-grid-columns = 24
+!blueprint-container-size = 950px
+!blueprint-grid-margin = 10px
+!blueprint-grid-width = (!blueprint-container-size + !blueprint-grid-margin) / !blueprint-grid-columns - !blueprint-grid-margin
+
+
++blueprint-debug
++blueprint-interaction
+
+body
+  +blueprint-typography(true)
+
+form
+  +blueprint-form
