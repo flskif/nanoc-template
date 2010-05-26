@@ -36,7 +36,7 @@ route '/javascripts/*/' do
 end
 
 route '/images/*/' do
-  item.identifier.chop + '.png'
+  item.identifier.chop + '.' + item[:extension]
 end
 
 route '*' do
