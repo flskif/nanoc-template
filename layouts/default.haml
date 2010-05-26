@@ -3,8 +3,9 @@
   %head
     %meta{ 'http-equiv' => 'Content-Type', :content => 'text/html;', 'charset' => 'utf-8'}
     %title= @item[:title]
-    %link{:href => 'style/screen.css', :rel => 'stylesheet', :media => 'screen'}
+    =stylesheet_link_tag "screen", :media => "screen"
     /[if lt IE 8]
-      %link{:href => 'style/ie.css', :rel => 'stylesheet', :media => 'screen'}
+      =stylesheet_link_tag "ie", :media => "screen"
+    =javascript_include_tag "application"
   %body
     #main= yield

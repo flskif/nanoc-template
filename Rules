@@ -3,8 +3,16 @@
 require 'compass'
 Compass.add_project_configuration('compass_config.rb')
 
-compile '/style/*/' do
+# compilation rules
+
+compile '/stylesheets/*/' do
   filter :sass, Compass.sass_engine_options
+end
+
+compile '/javascripts/*/' do
+end
+
+compile '/images/*/' do
 end
 
 compile '*' do
@@ -12,17 +20,28 @@ compile '*' do
   layout 'default'
 end
 
-route '/style/_*/' do
+
+# route rules
+
+route '/stylesheets/_*/' do
   nil
 end
 
-route '/style/*/' do
+route '/stylesheets/*/' do
   item.identifier.chop + '.css'
+end
+
+route '/javascripts/*/' do
+  item.identifier.chop + '.js'
+end
+
+route '/images/*/' do
+  item.identifier.chop + '.png'
 end
 
 route '*' do
   item.identifier + 'index.html'
 end
 
-
+# layout
 layout '*', :haml, :format => :html5
