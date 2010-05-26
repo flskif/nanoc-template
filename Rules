@@ -15,6 +15,10 @@ end
 compile '/images/*/' do
 end
 
+# compile '/images/*/', :rep => :thumbnail do
+#   filter :thumbnailize, :width => 200
+# end
+
 compile '*' do
   filter :haml
   layout 'default'
@@ -36,11 +40,19 @@ route '/javascripts/*/' do
 end
 
 route '/images/*/' do
-  item.identifier.chop + '.png'
+  item.identifier.chop + '.' + item[:extension]
+end
+
+route '/images/*/', :rep => :thumbnail do
+  item.identifier.chop + '-thumbnail.' + item[:extension]
+end
+
+route '/' do
+  item.identifier + 'index.html'
 end
 
 route '*' do
-  item.identifier + 'index.html'
+  item.identifier.chop + '.html'
 end
 
 # layout
