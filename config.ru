@@ -1,4 +1,4 @@
-root = "output"
+root = "public"
 
 require "adsf"
 
