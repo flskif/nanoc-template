@@ -10,6 +10,12 @@ compile '/stylesheets/*/' do
 end
 
 compile '/javascripts/*/' do
+  case item[:extension]
+    when 'coffee'
+      filter :coffee
+    when 'js'
+      # Nothing
+  end
 end
 
 compile '/images/*/' do
